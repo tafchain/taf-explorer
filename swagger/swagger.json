@@ -1,0 +1,692 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "TAF-Explorer API",
+        "description": "the TAF-Explorer About",
+        "version": "1.0.1",
+        "contact": {}
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/account/info": {
+            "post": {
+                "tags": [
+                    "account"
+                ],
+                "description": "account info",
+                "operationId": "AccountController.账户详情",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "account_name",
+                        "description": "查询账户名",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.AccountInfoResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/block/info": {
+            "post": {
+                "tags": [
+                    "block"
+                ],
+                "description": "区块详情",
+                "operationId": "BlockController.blockInfo",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "block_num",
+                        "description": "区块高度",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.BlockInfoResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/block/list": {
+            "post": {
+                "tags": [
+                    "block"
+                ],
+                "description": "区块列表",
+                "operationId": "BlockController.blockList",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "page_index",
+                        "description": "第几页",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "json",
+                        "name": "page_size",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.BlockListResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/contract/info": {
+            "post": {
+                "tags": [
+                    "contract"
+                ],
+                "description": "合约 info",
+                "operationId": "ContractController.合约详情",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "contract_name",
+                        "description": "合约名字",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.AccountInfoResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/contract/list": {
+            "post": {
+                "tags": [
+                    "contract"
+                ],
+                "description": "合约列表",
+                "operationId": "ContractController.contract",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "page_index",
+                        "description": "第几页",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "json",
+                        "name": "page_size",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.ContractListResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/homepage/count": {
+            "post": {
+                "tags": [
+                    "homepage"
+                ],
+                "description": "首页的那些统计值",
+                "operationId": "HomepageController.homepage count",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.HomepageCountResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/homepage/search": {
+            "post": {
+                "tags": [
+                    "homepage"
+                ],
+                "description": "搜索功能",
+                "operationId": "HomepageController.homepage search",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "search_content",
+                        "description": "搜索内容",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.HomepageSearchResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/transaction/info": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "description": "交易详情",
+                "operationId": "TransactionController.transactionInfo",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "trans_id",
+                        "description": "交易id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.TransInfoResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/transaction/list": {
+            "post": {
+                "tags": [
+                    "transaction"
+                ],
+                "description": "交易列表",
+                "operationId": "TransactionController.transactionList",
+                "parameters": [
+                    {
+                        "in": "json",
+                        "name": "page_index",
+                        "description": "第几页",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    {
+                        "in": "json",
+                        "name": "page_size",
+                        "description": "页大小",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.TransListResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/vote/count": {
+            "post": {
+                "tags": [
+                    "vote"
+                ],
+                "description": "投票数量 人数的统计",
+                "operationId": "VoteController.vote count",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.VoteCountResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        },
+        "/vote/list": {
+            "post": {
+                "tags": [
+                    "vote"
+                ],
+                "description": "投票数据",
+                "operationId": "VoteController.voteList",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/api.VoteListResp"
+                        }
+                    },
+                    "403": {
+                        "description": "body is empty"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "api.AccountInfoResp": {
+            "title": "AccountInfoResp",
+            "type": "object",
+            "properties": {
+                "account_name": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "string"
+                },
+                "create_time": {
+                    "type": "string"
+                },
+                "creator": {
+                    "type": "string"
+                },
+                "public_key": {
+                    "type": "string"
+                },
+                "trade_data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.ActionData"
+                    }
+                }
+            }
+        },
+        "api.ActionData": {
+            "title": "ActionData",
+            "type": "object",
+            "properties": {
+                "action_name": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "contract_name": {
+                    "type": "string"
+                },
+                "direction": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "origin_data": {
+                    "type": "string"
+                }
+            }
+        },
+        "api.Block": {
+            "title": "Block",
+            "type": "object",
+            "properties": {
+                "block_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "packer": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
+                },
+                "trx_count": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "verier": {
+                    "type": "string"
+                }
+            }
+        },
+        "api.BlockInfoResp": {
+            "title": "BlockInfoResp",
+            "type": "object",
+            "properties": {
+                "hex_data": {
+                    "type": "string"
+                },
+                "origin_data": {
+                    "type": "string"
+                },
+                "pack_time": {
+                    "type": "string"
+                },
+                "packer": {
+                    "type": "string"
+                },
+                "verier": {
+                    "type": "string"
+                },
+                "verify_time": {
+                    "type": "string"
+                }
+            }
+        },
+        "api.BlockListResp": {
+            "title": "BlockListResp",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.Block"
+                    }
+                },
+                "page_index": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.Contract": {
+            "title": "Contract",
+            "type": "object",
+            "properties": {
+                "actions": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "trade_num": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.ContractListResp": {
+            "title": "ContractListResp",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.Contract"
+                    }
+                },
+                "page_index": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.HomepageCountResp": {
+            "title": "HomepageCountResp",
+            "type": "object",
+            "properties": {
+                "account_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "contract_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "do_votes": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "head_block_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "node_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "taft_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "trade_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "vote_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "vote_ratio": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.HomepageSearchResp": {
+            "title": "HomepageSearchResp",
+            "type": "object",
+            "properties": {
+                "account_info": {
+                    "$ref": "#/definitions/api.AccountInfoResp"
+                },
+                "block_info": {
+                    "$ref": "#/definitions/api.Block"
+                },
+                "data_type": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "trans_info": {
+                    "$ref": "#/definitions/api.TransInfoResp"
+                }
+            }
+        },
+        "api.Trans": {
+            "title": "Trans",
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "string"
+                },
+                "block_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "direction": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "api.TransInfoResp": {
+            "title": "TransInfoResp",
+            "type": "object",
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.ActionData"
+                    }
+                },
+                "block_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "hash": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "api.TransListResp": {
+            "title": "TransListResp",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.Trans"
+                    }
+                },
+                "page_index": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_num": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "page_size": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "total": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.VoteCountResp": {
+            "title": "VoteCountResp",
+            "type": "object",
+            "properties": {
+                "peoples": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "vote_ratio": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "votes": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.VoteDetail": {
+            "title": "VoteDetail",
+            "type": "object",
+            "properties": {
+                "bonus": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "miners": {
+                    "type": "string"
+                },
+                "share": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "vote_num": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            }
+        },
+        "api.VoteListResp": {
+            "title": "VoteListResp",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/api.VoteDetail"
+                    }
+                }
+            }
+        }
+    }
+}
